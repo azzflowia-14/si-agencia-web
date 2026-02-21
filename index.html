@@ -363,6 +363,125 @@
             grid-column: span 2;
         }
 
+        /* CONTENIDO GALLERY */
+        .contenido {
+            background: #0a0a0a;
+            padding: 6rem 2rem;
+        }
+
+        .contenido-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+        }
+
+        .contenido-item {
+            overflow: hidden;
+            border-radius: 4px;
+            aspect-ratio: 1/1;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .contenido-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s, filter 0.3s;
+            filter: grayscale(30%);
+        }
+
+        .contenido-item:hover img {
+            transform: scale(1.08);
+            filter: grayscale(0%);
+        }
+
+        .contenido-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.15);
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .contenido-item:hover::after {
+            opacity: 0;
+        }
+
+        .contenido-item.wide {
+            grid-column: span 2;
+            aspect-ratio: 2/1;
+        }
+
+        .contenido-item.tall {
+            grid-row: span 2;
+            aspect-ratio: auto;
+        }
+
+        /* LIGHTBOX */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 201;
+            transition: transform 0.3s;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.2);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            padding: 1rem;
+            transition: transform 0.3s;
+            z-index: 201;
+        }
+
+        .lightbox-nav:hover {
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        .lightbox-prev { left: 1rem; }
+        .lightbox-next { right: 1rem; }
+
         /* DETAILS */
         .details {
             background: #000;
@@ -642,6 +761,20 @@
                 grid-column: span 1;
             }
 
+            .contenido-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contenido-item.wide {
+                grid-column: span 1;
+                aspect-ratio: 1/1;
+            }
+
+            .contenido-item.tall {
+                grid-row: span 1;
+                aspect-ratio: 1/1;
+            }
+
             section {
                 padding: 4rem 1.5rem;
             }
@@ -653,6 +786,10 @@
             }
 
             .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contenido-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -670,6 +807,7 @@
             <li><a href="#nosotros">Nosotros</a></li>
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contenido">Contenido</a></li>
             <li><a href="#objetivos">Objetivos</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
@@ -818,6 +956,72 @@
         </div>
     </section>
 
+    <!-- CONTENIDO -->
+    <section class="contenido" id="contenido">
+        <h2 class="section-title fade-in">NUESTRO CONTENIDO</h2>
+        <div class="contenido-grid">
+            <div class="contenido-item wide fade-in" onclick="openLightbox(0)">
+                <img src="img/contenido/contenido-01.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item fade-in" onclick="openLightbox(1)">
+                <img src="img/contenido/contenido-02.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item tall fade-in" onclick="openLightbox(2)">
+                <img src="img/contenido/contenido-03.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item fade-in" onclick="openLightbox(3)">
+                <img src="img/contenido/contenido-04.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item fade-in" onclick="openLightbox(4)">
+                <img src="img/contenido/contenido-05.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item fade-in" onclick="openLightbox(5)">
+                <img src="img/contenido/contenido-06.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item wide fade-in" onclick="openLightbox(6)">
+                <img src="img/contenido/contenido-07.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item fade-in" onclick="openLightbox(7)">
+                <img src="img/contenido/contenido-08.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item fade-in" onclick="openLightbox(8)">
+                <img src="img/contenido/contenido-09.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item tall fade-in" onclick="openLightbox(9)">
+                <img src="img/contenido/contenido-10.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item fade-in" onclick="openLightbox(10)">
+                <img src="img/contenido/contenido-11.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item fade-in" onclick="openLightbox(11)">
+                <img src="img/contenido/contenido-12.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item wide fade-in" onclick="openLightbox(12)">
+                <img src="img/contenido/contenido-13.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item fade-in" onclick="openLightbox(13)">
+                <img src="img/contenido/contenido-14.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item fade-in" onclick="openLightbox(14)">
+                <img src="img/contenido/contenido-15.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item fade-in" onclick="openLightbox(15)">
+                <img src="img/contenido/contenido-16.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+            <div class="contenido-item wide fade-in" onclick="openLightbox(16)">
+                <img src="img/contenido/contenido-17.jpg" alt="Contenido Si Agencia" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); navigateLightbox(-1)">&#8249;</button>
+        <img id="lightbox-img" src="" alt="Foto ampliada">
+        <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); navigateLightbox(1)">&#8250;</button>
+    </div>
+
     <!-- CONTACT -->
     <section class="contact" id="contacto">
         <span class="logo-big fade-in">Si</span>
@@ -869,6 +1073,41 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Lightbox
+        const lightboxImages = [];
+        for (let i = 1; i <= 17; i++) {
+            lightboxImages.push('img/contenido/contenido-' + String(i).padStart(2, '0') + '.jpg');
+        }
+        let currentLightboxIndex = 0;
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = lightboxImages[index];
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(e) {
+            if (e && e.target !== e.currentTarget && e.target.tagName !== 'BUTTON') return;
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigateLightbox(dir) {
+            currentLightboxIndex = (currentLightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+            document.getElementById('lightbox-img').src = lightboxImages[currentLightboxIndex];
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
 
         // Nav background on scroll
         window.addEventListener('scroll', () => {
