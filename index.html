@@ -327,6 +327,131 @@
             color: #666;
         }
 
+        /* MEMBRESIA */
+        .membresia {
+            background: #000;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .membresia-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .membresia-header {
+            max-width: 1200px;
+            margin: 0 auto 3.5rem;
+            text-align: center;
+        }
+
+        .membresia-header h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .membresia-header p {
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #bbb;
+        }
+
+        .membresia-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .membresia-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .membresia-img:hover {
+            transform: scale(1.02);
+        }
+
+        .membresia-pitch {
+            max-width: 1200px;
+            margin: 3.5rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .membresia-pitch div {
+            padding: 1.5rem 1rem;
+            border-top: 1px solid #222;
+        }
+
+        .membresia-pitch h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .membresia-pitch p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #888;
+        }
+
+        .membresia-cta {
+            text-align: center;
+            margin-top: 3.5rem;
+        }
+
+        .membresia-cta a {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .membresia-cta a:hover {
+            background: #000;
+            color: #fff;
+            box-shadow: inset 0 0 0 2px #fff;
+        }
+
+        @media (max-width: 768px) {
+            .membresia-grid {
+                grid-template-columns: 1fr;
+            }
+            .membresia-pitch {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+
         /* PORTFOLIO GALLERY */
         .portfolio {
             background: #000;
@@ -806,6 +931,7 @@
         <ul id="nav-menu">
             <li><a href="#nosotros">Nosotros</a></li>
             <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#membresia">Membresía</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contenido">Contenido</a></li>
             <li><a href="#objetivos">Objetivos</a></li>
@@ -886,6 +1012,36 @@
                     <p>Porque si solo te basás en lo orgánico, estás limitando tu alcance. Con Paid Media, tu marca llega justo a las personas que querés alcanzar.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- MEMBRESIA -->
+    <section class="membresia" id="membresia">
+        <div class="membresia-header fade-in">
+            <span class="membresia-tag">Lanzamiento</span>
+            <h2>Membresía de Contenido</h2>
+            <p>Muchas marcas publican por cumplir. Pero el contenido sin estrategia no genera resultados. Creamos contenido para tu marca todos los meses, con calidad, con estrategia, con intención.</p>
+        </div>
+        <div class="membresia-grid fade-in">
+            <img src="img/membresia/membresia-01.png" alt="Membresía de Contenido — Faus" class="membresia-img">
+            <img src="img/membresia/membresia-02.png" alt="Lanzamos Membresía de Contenido" class="membresia-img">
+        </div>
+        <div class="membresia-pitch fade-in">
+            <div>
+                <h3>Calidad</h3>
+                <p>Producción cuidada en cada pieza, pensada para destacarse en el feed.</p>
+            </div>
+            <div>
+                <h3>Estrategia</h3>
+                <p>Cada publicación responde a un objetivo claro de tu marca.</p>
+            </div>
+            <div>
+                <h3>Intención</h3>
+                <p>Contenido con propósito que conecta y convierte.</p>
+            </div>
+        </div>
+        <div class="membresia-cta fade-in">
+            <a href="https://wa.me/543407443093?text=Hola%2C%20me%20interesa%20la%20Membres%C3%ADa%20de%20Contenido" target="_blank" rel="noopener">Quiero sumarme</a>
         </div>
     </section>
 
